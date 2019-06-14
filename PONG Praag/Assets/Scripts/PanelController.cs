@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 public class PanelController : MonoBehaviour
 {
-    //[SerializeField]
-    //private Vector2 _bounds;
+    [SerializeField]
+    private Vector2 _boundsY = new Vector2(-2.1f, 2.1f);
     [SerializeField]
     private float _speed = 3f;
 
@@ -17,7 +17,9 @@ public class PanelController : MonoBehaviour
     {
         float y = Input.GetAxis("Vertical");
         float add = y * Time.deltaTime * this._speed;
-        this._rb.MovePosition(new Vector2(this.transform.position.x, this.transform.position.y + add));
+        float finalPositionY = this.transform.position.y + add;
+        finalPositionY = Mathf.Clamp(finalPositionY, this._boundsY.x, this._boundsY.y);
+        this._rb.MovePosition(new Vector2(this.transform.position.x, finalPositionY));
     }
 
 }
