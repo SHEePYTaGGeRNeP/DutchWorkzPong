@@ -13,13 +13,20 @@ public class PanelController : MonoBehaviour
         this._rb = this.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         float y = Input.GetAxis("Vertical");
+        this.MoveInput(y);
+    }
+
+    public void MoveInput(float y)
+    {
+        y = Mathf.Clamp(y, -1f, 1f);
         float add = y * Time.deltaTime * this._speed;
         float finalPositionY = this.transform.position.y + add;
         finalPositionY = Mathf.Clamp(finalPositionY, this._boundsY.x, this._boundsY.y);
         this._rb.MovePosition(new Vector2(this.transform.position.x, finalPositionY));
+
     }
 
 }
