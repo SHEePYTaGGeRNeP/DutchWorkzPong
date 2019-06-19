@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 29546246}
   - component: {fileID: 29546245}
   - component: {fileID: 29546249}
+  - component: {fileID: 29546250}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -155,7 +156,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1
 --- !u!50 &29546246
 Rigidbody2D:
   serializedVersion: 4
@@ -214,8 +215,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a6287bbda52d5b94194dc52bbaa96654, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -234,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 29546244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -252,6 +253,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 1
+--- !u!114 &29546250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29546244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4710c3518b14aa45bde67d56a040b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotation: {x: 0, y: 0, z: 1}
+  _speed: 50
 --- !u!1 &180662739
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,8 +705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4710c3518b14aa45bde67d56a040b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotation: {x: 0, y: 0, z: 50}
-  _speed: 2
+  _rotation: {x: 0, y: 0, z: 1}
+  _speed: 100
 --- !u!1 &484713372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1775,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 196759616342835276, guid: a06321110e8711745a3d5480c3121a8e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 196759616342835276, guid: a06321110e8711745a3d5480c3121a8e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1737685487059227985, guid: a06321110e8711745a3d5480c3121a8e,
         type: 3}
       propertyPath: _ball
@@ -1767,8 +1792,13 @@ PrefabInstance:
       objectReference: {fileID: 29546248}
     - target: {fileID: 1737685487059227985, guid: a06321110e8711745a3d5480c3121a8e,
         type: 3}
-      propertyPath: _speed
-      value: 3
+      propertyPath: _boundsY.x
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737685487059227985, guid: a06321110e8711745a3d5480c3121a8e,
+        type: 3}
+      propertyPath: _boundsY.y
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06321110e8711745a3d5480c3121a8e, type: 3}
